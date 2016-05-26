@@ -70,6 +70,7 @@
       //hakka kuulama hiireklõpse
       this.bindEvents();
     },
+
     bindEvents: function(){
       document.querySelector('.add-new-animal').addEventListener('click', this.addNewClick.bind(this));
       //kuulan trükkimist otsi kastist
@@ -218,9 +219,9 @@
         }
     }
     return str;
-}
-  };
+},
 
+  };
   var Animal = function(new_id, Name, new_Injury, timeAdded){
     this.id = new_id;
     this.Name = Name;
@@ -228,6 +229,10 @@
 	  this.timeAdded = timeAdded;
   };
   Animal.prototype = {
+    changeBackground:function(){
+      console.log("vajutatud");
+      document.main.style.backgroundColor = "green";
+    },
     createHtmlElement: function(){
 
       //anna tagasi ilus html
@@ -259,6 +264,7 @@
       //console.log(li);
       return li;
     }
+
   };
 
   //helper
