@@ -3,45 +3,87 @@
 <head>
   <meta charset="UTF-8">
   <title>Loomahaldus</title>
-  <script src="app.js" charset="utf-8"></script>
+  <script src="app.js"></script>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </head>
 <body>
-
   <nav class="menu">
     <ul class="menu-list">
       <li class="menu-item"><a href="#home-view" class="menu-link home-view active-menu">Avaleht</a></li>
-      <li class="menu-item"><a href="#list-view" class="menu-link list-view">Loomade loetelu</a></li>
+      <li class="menu-item"><a href="#list-view" class="menu-link list-view">Loend</a></li>
       <li class="menu-item"><a href="#manage-view" class="menu-link manage-view">Haldus</a></li>
     </ul>
   </nav>
-
   <main role="main">
 
     <div id="list-view">
       <h1>Loend</h1>
-      <p class="loading">Laeb...</p><br>
-      <input type="search" placeholder="Sisesta võtmesõna" id="search"><br>
+      <input type="search" placeholder="Enter keyword" id="search"><br>
       <ul class="list-of-animals"></ul>
-      
+      <div class="kokku" id="kokku"></div>
+
+      <!-- Muutmine -->
+      <!-- Modal -->
+      <div class="modal fade" id="ModalEdit" tabindex="-1" role="dialog"
+         aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <button type="button" class="close"
+                       data-dismiss="modal">
+                           <span aria-hidden="true">&times;</span>
+                           <span class="sr-only">Close</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">Muuda</h4>
+                </div>
+
+                <!-- Modal Body -->
+                <div class="modal-body">
+
+                    <form class="form-horizontal" role="form">
+                      <div class="form-group">
+                        <label  class="col-sm-2 control-label" for="EditName">Looma nimi</label>
+                        <div class="col-sm-10">
+                            <input type="text" name="EditName" class="EditName" placeholder="Looma nimi">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="col-sm-2 control-label" for="EditInjury" >Vigastus</label>
+                        <div class="col-sm-10">
+                            <input type="text" name="EditInjury" class="EditInjury" placeholder="Vigastus">
+                        </div>
+                      </div>
+
+                    <button id="edit_close" type="button" class="btn btn-default" data-dismiss="modal">Sulge</button>
+                    <button id="save" type="button" class="btn btn-primary btn pull-right" data-dismiss="modal">Salvesta</button>
+                </div>
+            </div>
+        </div>
+      </div>
+
+
     </div>
+
     <div id="manage-view">
       <h1>Haldus</h1>
+      <div class="feedback-success" id="show-feedback"></div>
 
-      <label for="title">Loom: </label><br>
-      <input type="text" name="title" class="title"><br>
+      <label for="Name">Loom</label><br>
+      <input type="text" name="Name" class="Name"><br>
 
-      <label for="injury">Probleem: </label><br>
-      <input type="text" name="injury" class="injury"><br>
+      <label for="Injury">Vigastus</label><br>
+      <input type="text" name="Injury" class="Injury"><br>
 
-      <button class="add-new-animal pull-right">Lisa uus loom</button>
+      <button class="add-new-animal">Lisa</button>
     </div>
-
     <div id="home-view">
       <h1>Avaleht</h1>
+      <div id="counter"></div>
     </div>
-
   </main>
-
 </body>
 </html>
